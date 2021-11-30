@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #000;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* --------------CONTAINER--------------- */
+.container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* --------------LOADING...--------------- */
+.container p{
+    color: #fff;
+    position: absolute;
+    bottom: -150px;
+    left: 43%;
+    font-size: 2em;
+    font-family: 'consolas';
+    letter-spacing: 0.2em;
+    overflow: hidden;
+
+    animation: animate_p 4s linear infinite;
+}
+.container p span{
+    display: inline-block;
+    width: 70px;
+    animation: animate_span 3s linear infinite;
+}
+
+
+/* --------------SQUARES--------------- */
+.container .square{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    margin: -50px;
+    border: 5px solid white;
+    border-radius: 40px;
+    border-top: 5px solid #24ecff;
+    border-right: 5px solid #e92efb;
+    border-bottom: 5px solid #440bd4;
+    border-left: 5px solid #04005e;
+
+    animation: animate_1 4s linear infinite;
+}
+.container .square:nth-child(3){
+    position: absolute;
+    top: -120px;
+}
+
+
+/* --------------LITTLE CIRCLES--------------- */
+.container .square::before{
+    content: "";
+    background-color: #24ecff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    box-shadow: 0 0 0 5px #24ecff33,
+                0 0 0 10px #24ecff22,
+                0 0 0 20px #24ecff11,
+                0 0 20px #24ecff,
+                0 0 50px #24ecff;
+    animation: animate_inside 4s linear infinite;
+}
+
+
+
+/* --------------ANIMATIONS--------------- */
+
+/* SQUARES */
+@keyframes animate_1{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* LITTLE CIRCLES */
+@keyframes animate_inside {
+    0%{
+        top: 24px;
+        right: 24px;
+        background-color: #e92efb;
+        box-shadow: 0 0 0 5px #e92efb33,
+                0 0 0 10px #e92efb22,
+                0 0 0 20px #e92efb11,
+                0 0 20px #e92efb,
+                0 0 50px #e92efb;
+    }
+    25%{
+        top: 197px;
+        right: 24px;
+        background-color: #e92efb;
+        box-shadow: 0 0 0 5px #e92efb33,
+                0 0 0 10px #e92efb22,
+                0 0 0 20px #e92efb11,
+                0 0 20px #e92efb,
+                0 0 50px #e92efb;
+    }
+    26%{
+        background-color: #440bd4;
+        box-shadow: 0 0 0 5px #440bd433,
+                0 0 0 10px #440bd422,
+                0 0 0 20px #440bd411,
+                0 0 20px #440bd4,
+                0 0 50px #440bd4;
+    }
+    50%{
+        top: 197px;
+        right: 197px;
+        background-color: #440bd4;
+        box-shadow: 0 0 0 5px #440bd433,
+                0 0 0 10px #440bd422,
+                0 0 0 20px #440bd411,
+                0 0 20px #440bd4,
+                0 0 50px #440bd4;
+    }
+    51%{
+        background-color: #04005e;
+        box-shadow: 0 0 0 5px #04005e33,
+                0 0 0 10px #04005e22,
+                0 0 0 20px #04005e11,
+                0 0 20px #04005e,
+                0 0 50px #04005e;
+    }
+    75%{
+        top: 24px;
+        right: 197px;
+        background-color: #04005e;
+        box-shadow: 0 0 0 5px #04005e33,
+                0 0 0 10px #04005e22,
+                0 0 0 20px #04005e11,
+                0 0 20px #04005e,
+                0 0 50px #04005e;
+    }
+    76%{
+        background-color: #24ecff;
+        box-shadow: 0 0 0 5px #24ecff33,
+                0 0 0 10px #24ecff22,
+                0 0 0 20px #24ecff11,
+                0 0 20px #24ecff,
+                0 0 50px #24ecff;
+    }
+    100%{
+        top: 24px;
+        right: 24px;
+        background-color: #24ecff;
+        box-shadow: 0 0 0 5px #24ecff33,
+                0 0 0 10px #24ecff22,
+                0 0 0 20px #24ecff11,
+                0 0 20px #24ecff,
+                0 0 50px #24ecff;
+    }
+}
+
+/* LOADING... */
+@keyframes animate_p {
+    0%{color: white;}
+    10%{color: #24ecff;}
+    25%{color: #e92efb;}
+    50%{color: #440bd4;}
+    75%{color: #04005e;}
+    90%{color: #24ecff;}
+    100%{color: white;}
+}
+@keyframes animate_span {
+    0%{width: 0px;}
+    30%{width: 25px;}
+    60%{width: 50px;}
+    90%{width: 70px;}
+}
+
+/* --------------END of ANIMATIONS--------------- */
